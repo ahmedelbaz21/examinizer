@@ -1,0 +1,191 @@
+/* ============================================
+   Examinizer - Reusable Components
+   Version: 1.0
+   ============================================ */
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb-item {
+    color: var(--gray-500);
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-blue);
+    font-weight: var(--font-medium);
+}
+
+.breadcrumb-separator {
+    color: var(--gray-400);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tab {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: var(--font-medium);
+    color: var(--gray-600);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.tab:hover {
+    color: var(--primary-blue);
+}
+
+.tab.active {
+    color: var(--primary-blue);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-blue);
+}
+
+/* Alerts */
+.alert {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--warning);
+    color: var(--warning);
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.alert-info {
+    background: rgba(30, 110, 240, 0.1);
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 200px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(var(--spacing-xs));
+}
+
+.dropdown-item {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    color: var(--gray-700);
+    transition: background var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background: var(--gray-50);
+    color: var(--primary-blue);
+}
+
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gray-900);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+[data-tooltip]:hover::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 5px);
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-300) 50%, var(--gray-200) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-lg);}
+
+.badge-success { background: rgba(16,185,129,0.1); color: var(--success); }
+.badge-danger  { background: rgba(239,68,68,0.1);  color: var(--danger);  }
+.badge-blue { background: var(--accent-light); color: var(--primary-blue); }
+.badge-orange { background: rgba(245,158,11,0.1); color: var(--warning); }
+.badge-purple { background: rgba(139,92,246,0.1); color: #7c3aed; }
+.badge-warning { background: rgba(245,158,11,0.1); color: var(--warning); }
